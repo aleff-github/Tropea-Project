@@ -1,0 +1,86 @@
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width: 350px;
+}
+
+.aligned {
+    text-align: center !important;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.title,
+.section-title,
+.tropea-title {
+    font-weight: bold;
+}
+
+.macro-title {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.tropea-title {
+    color: #9e264c;
+    font-size: x-large;
+}
+
+.section-title {
+    font-size: large;
+    color: #9e264c;
+}
+
+.subtitle {
+    font-style: italic;
+    font-size: medium;
+
+    word-wrap: break-word;
+    
+}
+
+label {
+    font-size: larger;
+}
+
+.form-check {
+    text-align: center;
+}
+
+.form-group {
+    display: inline-block;
+    align-self: center;
+}
+
+.btn {
+    background: #9e264c !important;
+    border-color: #9e264c !important;
+    color: white !important;
+}
+
+.btn:hover {
+    background: #771a38 !important;
+    border-color: #771a38 !important;
+}
+
+.btn:active {
+    background: white !important;
+    border-color: white !important;
+    color: black !important;
+}
+
+.outer {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-OneClick {
+    width: 85%;
+    margin-top: 10px;
+    display: block;
+}
+
+.btn-ExternalLink {
+    content: "&#xf35d;";
+}
