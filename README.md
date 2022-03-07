@@ -1,9 +1,10 @@
-![Tropea-Project](https://github.com/NoNameoN-A/Tropea-Project/blob/main/images/tropea-project.svg)
+[![Tropea-Project](https://github.com/NoNameoN-A/Tropea-Project/blob/main/images/tropea-project.svg)](https://addons.mozilla.org/it/firefox/addon/tropea-project/)
 
 # Tropea-Project
 Tropea-Project is an open-source project undertaken by a university student for a thesis work at the University of Calabria UNICAL and the only goal is to give everyone (even less experienced average users) the opportunity to modify at their own I plan the tunneling phase of the tor connection in a clear and simple way as you want.
 
-*Color: #9e264c*
+*Firefox Extension Link: https://addons.mozilla.org/it/firefox/addon/tropea-project/*
+*Tropea Color: #9e264c*
 
 ## Licence
 ![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge) 
