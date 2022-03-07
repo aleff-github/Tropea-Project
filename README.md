@@ -31,7 +31,7 @@ Tropea-Project extension work in local from the extension command whit node.js a
 |\[Add\]ExitNodes|it,de,...|
 |\[Add\]ExcludeNodes|it,de,...|
 |\[Add\]ExcludeExitNodes|it,de,...|
-|Torify App|<application>|
+|Torify App|\<application\>|
 
 # FAQs
 
