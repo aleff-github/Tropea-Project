@@ -9,7 +9,9 @@ You have 3 way to understand how it works
 |--|--|
 |How-To Sections|Click on Advanced Tropea -> How-To page|
 |Tropea-Project Website|Link: https://nonameon-a.github.io/Tropea-Project/|
-|Tutorial Video|Link: https://peertube.uno/w/acz9VzntwYFicwgxk7i9by|
+|Windows Tutorial Video|Link: https://peertube.uno/w/acz9VzntwYFicwgxk7i9by|
+|Linux Tutorial Video|Not aviable yet|
+|MacOS Tutorial Video|Not aviable yet|
 
 # How it works?
 Tropea-Project extension work in local from the extension command whit node.js and javascript that get the input from the extension and edit torrc file in the TorBrowser folder as the user want, so as the input sent.
