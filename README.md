@@ -1,10 +1,21 @@
-
 ![Tropea-Project](https://github.com/NoNameoN-A/Tropea-Project/blob/main/images/tropea-project.svg)
 
 # Tropea-Project
 Tropea-Project is an open-source project undertaken by a university student for a thesis work at the University of Calabria UNICAL and the only goal is to give everyone (even less experienced average users) the opportunity to modify at their own I plan the tunneling phase of the tor connection in a clear and simple way as you want.
 
 *Color: #9e264c*
+
+## Licence
+![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge) 
+
+## Components
+![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=Firefox-Browser&logoColor=white) ![Tor](https://img.shields.io/badge/Tor-7D4698?style=for-the-badge&logo=Tor-Browser&logoColor=white)
+
+## Language Used
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+## OS
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white) ![Mac OS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
 
 # How to use Tropea-Project?
 You have 3 way to understand how it works
