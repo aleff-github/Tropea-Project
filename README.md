@@ -27,25 +27,26 @@ Tropea-Project extension work in local from the extension command whit node.js a
 # Styntax Index
 |Element/s|Syntax|
 |--|--|
-|\[Add\]EntryNodes|...|
-|\[Add\]ExitNodes|...|
-|\[Add\]ExcludeNodes|...|
-|\[Add\]ExcludeExitNodes|...|
-|Torify App|...|
+|\[Add\]EntryNodes|it,de,...|
+|\[Add\]ExitNodes|it,de,...|
+|\[Add\]ExcludeNodes|it,de,...|
+|\[Add\]ExcludeExitNodes|it,de,...|
+|Torify App|<application>|
 
 # FAQs
 
 ## Torify function works in every OS?
-Response..
+<strong><u>No Unfortunately!</u></strong> No options for Windows, sadly. They haven’t found a good way to do network isolation there. On macOS, you should be able to “just” use torify but you must copy the binaries over to /tmp for example to torify them.<a href="https://forum.torproject.net/t/how-can-i-use-torify-command-on-else-operating-system/2207">-learn more... -</a>
 
 ## Torify function works with every Application?
-Response..
+<strong><u>Not for all!</u></strong> Unfortunately establishing a 100% secure Tor connection is not easy and therefore development in general is very slow to favor a secure system. There is a list of applications where it has been tested and you can find it by <a href="https://gitlab.torproject.org/legacy/trac/-/wikis/doc/torsocks#security">clicking
+ here!</a> Else if you want to see the official response on TorProject Forum <a href="https://forum.torproject.net/t/torify-problem-in-applications-launch/2220/3">click here</a>.
 
 ## Why i must run tropea.js on my computer before use tropea extension?
-Response..
+Tropea-Project's priority is to have anyone modify the tunneling of the tor network, so it was decided to create an interface already known as that of six websites. Fortunately, however, we cannot modify your files simply from an extension, which is why it is necessary to start node.js from your computer to perform all the requests made by the user through the extension.
 
-## How can i find Country ID to be sure that works on Tor Network?
-Response..
+## How can i be sure that a country works on Tor Network?
+<strong><u> <a href="https://metrics.torproject.org/rs.html#search/country:it">Whit this website</a> </u></strong> you can find all what you need. It is a TorProject service that you can use freely and for free to find Tor Relay for every country. If you don't know what is a Country ID you can use Google or <a href="https://laendercode.net/en/">this website</a>
 
-## Do you have an ask?
-Response, if you have an ask about the project you can open a threat in the Issues section of this repository
+## Tropea-Project is secure?
+<strong><u>It depends on you</u></strong> Tropea-Project does not interact in any way with your connection, nor does it take any data relating to your device or browser, all the changes you actually make, so it is up to you to be careful to follow the correct syntax but, where you are wrong, simply you would not be able to navigate and in that case it would be enough for you to reset everything using the Reset button and start over.
