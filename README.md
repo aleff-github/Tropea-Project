@@ -50,3 +50,7 @@ Tropea-Project's priority is to have anyone modify the tunneling of the tor netw
 
 ## Tropea-Project is secure?
 <strong><u>It depends on you</u></strong> Tropea-Project does not interact in any way with your connection, nor does it take any data relating to your device or browser, all the changes you actually make, so it is up to you to be careful to follow the correct syntax but, where you are wrong, simply you would not be able to navigate and in that case it would be enough for you to reset everything using the Reset button and start over.
+ 
+ ## How can i install Tor on my computer?
+<strong><u> <a href="https://tb-manual.torproject.org/installation/">Follow this guide</a></u>.</strong> Is really simple and you can do it in every OS(Windows, MacOS or Linux).
+ 
