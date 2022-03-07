@@ -1,0 +1,7 @@
+title: Tropea Project
+description: Troepa-Progect is a university thesis project with the aim of simplifying the modification of the tunneling phase in TorBrowser.
+show_downloads: true
+theme: jekyll-theme-architect
+github:
+  zip_url: https://github.com/NoNameoN-A/Tropea-Project/releases/download/tropea/socket-tropea.zip
+  another_url: https://github.com/NoNameoN-A/Tropea-Project/releases/tag/tropea
