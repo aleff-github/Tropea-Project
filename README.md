@@ -1,6 +1,6 @@
 [![Tropea-Project](https://github.com/NoNameoN-A/Tropea-Project/blob/main/images/tropea-project.svg)](https://addons.mozilla.org/it/firefox/addon/tropea-project/)
 
-# Tropea-Project
+# Tropea-Project [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FNoNameoN-A%2FTropea-Project&count_bg=%239E264C&title_bg=%239E264C&icon=tor.svg&icon_color=%231C1C1C&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 Tropea-Project is an open-source project undertaken by a university student for a thesis work at the University of Calabria UNICAL and the only goal is to give everyone (even less experienced average users) the opportunity to modify at their own I plan the tunneling phase of the tor connection in a clear and simple way as you want.
 
 *Firefox Extension Link: https://addons.mozilla.org/it/firefox/addon/tropea-project/*
