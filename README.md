@@ -25,7 +25,7 @@ You have 3 way to understand how it works
 |--|--|
 |How-To Sections|Click on Advanced Tropea -> How-To page|
 |Tropea-Project Website|Link: https://nonameon-a.github.io/Tropea-Project/|
-|Windows Tutorial|Video: https://peertube.uno/w/enVbLMUdRHA3KCgHjgkR6s|
+|Windows Tutorial|Video: https://peertube.uno/w/8rYXiFzsK8peyyFZfP43j3|
 |Linux Tutorial|Video: https://peertube.uno/w/8uGwfnjGit1XZ4vv9rRg7u|
 |MacOS Tutorial Video|Not aviable yet|
 
