@@ -16,8 +16,11 @@ Tropea-Project is an open-source project undertaken by a university student for 
 ## Language Used
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-## OS
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white) ![Mac OS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
+## OS Tested
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+
+## OS UnTested
+![Mac OS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
 
 # How to use Tropea-Project?
 You have 3 way to understand how it works
@@ -27,7 +30,7 @@ You have 3 way to understand how it works
 |Tropea-Project Website|Link: https://nonameon-a.github.io/Tropea-Project/|
 |Windows Tutorial|Video: https://peertube.uno/w/8rYXiFzsK8peyyFZfP43j3|
 |Linux Tutorial|Video: https://peertube.uno/w/8uGwfnjGit1XZ4vv9rRg7u|
-|MacOS Tutorial Video|Not aviable yet|
+|MacOS Tutorial Video|Not aviable yet <- Untested|
 
 # How it works?
 Tropea-Project extension work in local from the extension command whit node.js and javascript that get the input from the extension and edit torrc file in the TorBrowser folder as the user want, so as the input sent.
