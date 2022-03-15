@@ -18,7 +18,7 @@ ws.addEventListener("message", message => {
         var content = "Everything is done, close all browser opened, then run your TorBrowser!";
         browser.notifications.create({
             "type": "basic",
-            "iconUrl": browser.extension.getURL("https://img.icons8.com/flat-round/48/000000/checkmark.png"),
+            "iconUrl": browser.extension.getURL("../icons/done.png"),
             "title": title,
             "message": content
         });
@@ -26,12 +26,12 @@ ws.addEventListener("message", message => {
         alert("Attenction! You must use a correct path!")
     } else if (response.includes("ActualPath")) {
         document.getElementById("actualPath").innerHTML = response;
-    } else if (response == "NoPath") {
+    } else if (response == "error") {
         var title = "Error!";
         var content = "An error is occurred!";
         browser.notifications.create({
             "type": "basic",
-            "iconUrl": browser.extension.getURL("https://img.icons8.com/flat-round/48/000000/checkmark.png"),
+            "iconUrl": browser.extension.getURL("../icons/error.png"),
             "title": title,
             "message": content
         });
