@@ -9,7 +9,7 @@
 // Download Tropea-Project
 function openDownloadModal() {
     browser.tabs.create({
-        "url": "www.tropea-project.org"
+        "url": "https://github.com/NoNameoN-A/Tropea-Project"
     });
 }
 document.getElementById("download-tropea-project").addEventListener("click", openDownloadModal);
