@@ -248,15 +248,14 @@ function setExcludedExitNodes(ws, message) {
 function setGeoIPExcludeUnknown(ws, message) {
     const geoIPExcludeUnknown = message.split('$>');
 
-    const selection = geoIPExcludeUnknown[1].split(',');
-    stringToBeSent = "\nGeoIPExcludeUnknown " + selection
+    const selection = geoIPExcludeUnknown[1];
+    stringToBeSent = "\nGeoIPExcludeUnknown " + selection;
 
     // Update file
     addLineToTorrcFile(ws, stringToBeSent, 1, "GeoIPExcludeUnknown");
 }
 
 /**
- * 
  * Advanced Tropea Function
  */
 
@@ -373,26 +372,6 @@ function generateAllSettings(ws) {
     data.TorBrowserPath = path.torPath;
 
     try {
-        // const fs = require('fs');
-        // const dataFile = fs.readFileSync(path.torrcPath, 'UTF-8');
-
-        // // split the contents by new line
-        // const lines = dataFile.split(/\r?\n/);
-
-        // // print all lines
-        // lines.forEach((line) => {
-        //     if (line.includes(PATTERN.EntryNodes)) {
-        //         data.EntryNodes = line;
-        //     } else if (line.includes(PATTERN.ExcludeExitNodes)) {
-        //         data.ExcludeExitNodes = line;
-        //     } else if (line.includes(PATTERN.ExcludeNodes)) {
-        //         data.ExcludeNodes = line;
-        //     } else if (line.includes(PATTERN.ExitNodes)) {
-        //         data.ExitNodes = line;
-        //     } else if (line.includes(PATTERN.GeoIPExcludeUnknown)) {
-        //         data.GeoIPExcludeUnknown = line;
-        //     }
-        // });
 
         const lineReader = require('read-each-line-sync');
         lineReader(path.torrcPath, 'utf8', function (line) {
@@ -487,7 +466,11 @@ function addLineToTorrcFile(ws, lineToAdd, type, pattern) {
 
         try {
             torrcFileData = fs.readFileSync(path.torrcPath, 'utf8');
-            regex = new RegExp(pattern + '\\s\\{'); // /(${matchedTorrcFunction})\s\{/;
+            if(pattern == "GeoIPExcludeUnknown"){
+                regex = new RegExp(pattern);
+            } else {
+                regex = new RegExp(pattern + '\\s\\{');
+            }
             match = torrcFileData.match(regex);
 
             if (match != null) { // Exist
