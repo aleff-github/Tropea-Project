@@ -105,6 +105,7 @@ function reset(ws) {
         });
     } catch {
         ws.send("error");
+        return;
     }
     ws.send("done");
 }
