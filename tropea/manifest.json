@@ -19,7 +19,7 @@
     ],
     "background": {
         "scripts": [
-            "tropea.js"
+            "script/tropea.js"
         ]
     },
     "icons": {
