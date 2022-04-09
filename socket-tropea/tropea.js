@@ -1,7 +1,5 @@
-// #!/usr/bin/node
-
 const WebSocket = require("ws");
-// const request = require('request');
+var fs = require('fs');
 
 var path = {
     torrcPath: "",
@@ -45,13 +43,13 @@ ws.on("connection", ws => {
         } else if (message == "reset") {
             reset(ws);
         } else if (message.includes("setEntryNodes")) {
-            setEntryNodes(ws, message);
+            setNodesSettings(ws, message, PATTERN.EntryNodes);
         } else if (message.includes("setExitNodes")) {
-            setExitNodes(ws, message);
+            setNodesSettings(ws, message, PATTERN.ExitNodes);
         } else if (message.includes("setExcludedNodes")) {
-            setExcludedNodes(ws, message);
+            setNodesSettings(ws, message, PATTERN.ExcludeNodes);
         } else if (message.includes("setExcludedExitNodes")) {
-            setExcludedExitNodes(ws, message);
+            setNodesSettings(ws, message, PATTERN.ExcludeExitNodes);
         } else if (message.includes("setGeoIPExcludeUnknown")) {
             setGeoIPExcludeUnknown(ws, message)
         } else if (message.includes("getAllSettings")) {
@@ -68,17 +66,13 @@ ws.on("connection", ws => {
             console.log(`Client has sent us: ${data}`);
         }
     });
-
     ws.on("close", () => {
         console.log("Client has disconected!");
     });
-
-
 });
 
 // Execute command in shell
 const { exec } = require("child_process");
-
 
 /**Set Torrc File Path */
 function setTorrcFilePath(message) {
@@ -94,151 +88,16 @@ function setTorrcFilePath(message) {
     }
 }
 
-
-
 /**Reset function */
 function reset(ws) {
     try {
-        var fs = require('fs');
         fs.truncate(path.torrcPath, 0, function () {
             console.log('[+] Resetted!');
         });
     } catch {
         ws.send("error");
-        return;
     }
     ws.send("done");
-}
-
-/**Change entry node for tor network
- * syntax example
- * EntryNodes {ca},{eg} StrictNodes 1
- */
-function setEntryNodes(ws, message) {
-    const getEntryNodes = message.split('$>');
-    const entryNodeList = getEntryNodes[1].split(',');
-
-    stringToBeSent = "";
-
-    if (entryNodeList.length != 0) {
-        stringToBeSent = "\nEntryNodes {" + entryNodeList[0] + "}";
-        entryNodeList.forEach(function (value) {
-            if (value != entryNodeList[0]) {
-                stringToBeSent += ",{";
-                stringToBeSent += value;
-                stringToBeSent += "} ";
-            }
-        });
-
-        var oldData = getOldData("EntryNodes")
-
-        if (oldData.length != 0) {
-            stringToBeSent += ",";
-            stringToBeSent += oldData;
-        }
-    }
-
-    // StrictNode Setting
-    if (getEntryNodes[2] != undefined) {
-        stringToBeSent += " " + getEntryNodes[2]
-    }
-
-    // Update file
-    addLineToTorrcFile(ws, stringToBeSent, 1, "EntryNodes");
-}
-
-/**Change exit node for tor network
- * syntax example
- * ExitNodes {ca},{eg} StrictNodes 1
- */
-function setExitNodes(ws, message) {
-    const getExitNodes = message.split('$>');
-    const exitNodeList = getExitNodes[1].split(',');
-    
-    stringToBeSent = "";
-
-    if (exitNodeList.length != 0) {
-        stringToBeSent = "\nExitNodes {" + exitNodeList[0] + "}";
-        exitNodeList.forEach(function (value) {
-            if (value != exitNodeList[0]) {
-                stringToBeSent += ",{";
-                stringToBeSent += value;
-                stringToBeSent += "} ";
-            }
-        });
-
-        var oldData = getOldData("ExitNodes")
-
-        if (oldData.length != 0) {
-            stringToBeSent += ",";
-            stringToBeSent += oldData;
-        }
-    }
-    // StrictNode Setting
-    if (getExitNodes[2] != undefined) {
-        stringToBeSent += " " + getExitNodes[2]
-    }
-
-    // Update file
-    addLineToTorrcFile(ws, stringToBeSent, 1, "ExitNodes");
-}
-
-/**Change excluded nodes for tor network
- * syntax example
- * ExcludeNodes {ca},{eg}
- */
-function setExcludedNodes(ws, message) {
-    const getExcludedNodes = message.split('$>');
-
-    const excludedNodeList = getExcludedNodes[1].split(',');
-    stringToBeSent = "\nExcludeNodes {" + excludedNodeList[0] + "}";
-    excludedNodeList.forEach(function (value) {
-        if (value != excludedNodeList[0]) {
-            stringToBeSent += ",{";
-            stringToBeSent += value;
-            stringToBeSent += "} ";
-        }
-    });
-
-    var oldData = getOldData("ExcludeNodes")
-
-    if (oldData.length != 0) {
-        stringToBeSent += ",";
-        stringToBeSent += oldData;
-    }
-
-    // Update file
-    addLineToTorrcFile(ws, stringToBeSent, 1, "ExcludeNodes");
-}
-
-/**Change excluded exit nodes for tor network
- * syntax example
- *  ExcludeExitNodes {ca},{eg}
- */
-function setExcludedExitNodes(ws, message) {
-    const getExcludedExitNodes = message.split('$>');
-
-    // ExcludeExitNodes Settings
-    // excludedNodes = getExcludedExitNodes[1];
-    const excludedExitNodeList = getExcludedExitNodes[1].split(',');
-    stringToBeSent = "\nExcludeExitNodes {" + excludedExitNodeList[0] + "}";
-    excludedExitNodeList.forEach(function (value) {
-        if (value != excludedExitNodeList[0]) {
-            stringToBeSent += ",{";
-            stringToBeSent += value;
-            stringToBeSent += "} ";
-        }
-    });
-
-    var oldData = getOldData("ExcludeExitNodes")
-
-    if (oldData.length != 0) {
-        stringToBeSent += ",";
-        stringToBeSent += oldData;
-    }
-
-    // Update file
-    addLineToTorrcFile(ws, stringToBeSent, 1);
 }
 
 /**Change GeoIPExcludeUnknown for tor network
@@ -248,16 +107,12 @@ function setExcludedExitNodes(ws, message) {
 function setGeoIPExcludeUnknown(ws, message) {
     const geoIPExcludeUnknown = message.split('$>');
 
-    const selection = geoIPExcludeUnknown[1];
-    stringToBeSent = "\nGeoIPExcludeUnknown " + selection;
+    const selection = geoIPExcludeUnknown[1].split(',');
+    stringToBeSent = "\n" + PATTERN.GeoIPExcludeUnknown + " " + selection
 
     // Update file
-    addLineToTorrcFile(ws, stringToBeSent, 1, "GeoIPExcludeUnknown");
+    addLineToTorrcFile(ws, stringToBeSent, PATTERN.GeoIPExcludeUnknown);
 }
-
-/**
- * Advanced Tropea Function
- */
 
 /**Remove function */
 function removeElementFromTropeaAdvanced(ws, message) {
@@ -281,13 +136,11 @@ function removeElementFromTropeaAdvanced(ws, message) {
         lineReader(path.torrcPath, 'utf8', function (line) {
             if (line.includes(pattern)) {
 
-                var fs = require('fs');
                 toBeRemovedRegex = toBeRemoved.replace("}", "\\}")
 
                 torrcFileData = fs.readFileSync(path.torrcPath, 'utf8');
                 conditionOne = new RegExp(toBeRemovedRegex + ',');
                 conditionTwo = new RegExp(',' + toBeRemovedRegex);
-                conditionFive = new RegExp(' ' + toBeRemovedRegex + ' ');
 
                 /**
                  * Le possibili condizioni sono molteplici:
@@ -300,21 +153,6 @@ function removeElementFromTropeaAdvanced(ws, message) {
                  *      Se si vuole eliminare {bb} dobbiamo assicurarci di eliminare
                  *      anche la virgola per evitare questa situazione
                  *      EntryNodes {aa}, StrictNodes 1
-                 * 3. EntryNodes {aa},{bb},{cc} StrictNodes 1
-                 *      Se si vuole eliminare {bb} in questo caso ci basterà una
-                 *      delle due condizioni precedenti visto che il risultato
-                 *      sarà uguale EntryNodes {aa},{cc} StrictNodes 1
-                 * 4. ExcludeNodes {aa},{bb}
-                 *      In questo caso se si vuole eliminare {bb} , sapendo che
-                 *      non c'è StrictNodes dobbiamo essere certi che il 
-                 *      il punto 2 venga attivato, viceversa con {aa} e 
-                 *      il punto 1
-                 * 5. EntryNodes {aa} StrictNodes 1
-                 *      Volendo eliminare {aa} in questa situazioni dobbiamo
-                 *      essere certi di eliminare completamente tutta la righa
-                 *      per evitare questa situaizone 
-                 *      EntryNodes StrictNodes 1 che causerebbe un errore
-                 *      limitante all'apertura di TorBrowser 
                  */
 
                 var lineToChange = "";
@@ -328,7 +166,6 @@ function removeElementFromTropeaAdvanced(ws, message) {
                 }
 
                 var formatted = torrcFileData.replace(line, lineToChange);
-
                 fs.writeFile(path.torrcPath, formatted, 'utf8', function (err) {
                     if (err) {
                         console.log(err);
@@ -347,7 +184,6 @@ function removeElementFromTropeaAdvanced(ws, message) {
         const lineReader = require('read-each-line-sync');
         lineReader(path.torrcPath, 'utf8', function (line) {
             if (line.includes(pattern)) {
-                var fs = require('fs');
                 torrcFileData = fs.readFileSync(path.torrcPath, 'utf8');
                 var lineToChange = line.replace(toBeRemoved, '');
                 var formatted = torrcFileData.replace(line, lineToChange);
@@ -362,36 +198,33 @@ function removeElementFromTropeaAdvanced(ws, message) {
             }
         });
     }
-
 }
 
 function generateAllSettings(ws) {
-
     resetData();
-
     data.TorBrowserPath = path.torPath;
-
     try {
-
         const lineReader = require('read-each-line-sync');
         lineReader(path.torrcPath, 'utf8', function (line) {
-            if (line.includes(PATTERN.EntryNodes)) {
+            //console.log("[.]" + line)
+            if (line.startsWith(PATTERN.EntryNodes)) {
+                //console.log("[@]" + line)
                 data.EntryNodes = line;
-            } else if (line.includes(PATTERN.ExcludeExitNodes)) {
-                data.ExcludeExitNodes = line;
-            } else if (line.includes(PATTERN.ExcludeNodes)) {
-                data.ExcludeNodes = line;
-            } else if (line.includes(PATTERN.ExitNodes)) {
+            } else if (line.startsWith(PATTERN.ExitNodes)) {
+                // console.log("[*]" + line)
                 data.ExitNodes = line;
-            } else if (line.includes(PATTERN.GeoIPExcludeUnknown)) {
+            } else if (line.startsWith(PATTERN.ExcludeNodes)) {
+                //  console.log("[+]" + line)
+                data.ExcludeNodes = line;
+            } else if (line.startsWith(PATTERN.ExcludeExitNodes)) {
+                // console.log("[-]" + line)
+                data.ExcludeExitNodes = line;
+            } else if (line.startsWith(PATTERN.GeoIPExcludeUnknown)) {
                 data.GeoIPExcludeUnknown = line;
             }
         });
-
     } catch (err) { console.log(err); }
-
     ws.send(JSON.stringify(data))
-
 }
 
 function resetData() {
@@ -401,113 +234,65 @@ function resetData() {
     data.ExcludeNodes = "No Data!";
     data.ExitNodes = "No Data!";
     data.GeoIPExcludeUnknown = "No Data!";
-
 }
-
-
-/**
- * 
- * GENERAL FUNCTION
- */
 
 function getOldData(pattern) {
     var matchDataOfFunction = [];
-    var fs = require('fs');
     try {
-        torrcFileData = fs.readFileSync(path.torrcPath, 'utf8');
-        regex = new RegExp(pattern + '\\s\\{');
-        match = torrcFileData.match(regex);
-        if (match != null) { // Exist
-
-            const lineReader = require('read-each-line-sync');
-            lineReader(path.torrcPath, 'utf8', function (line) {
-                if (line.includes(pattern)) {
-                    regexp = /\{(\w+)\}/g;
-                    matchDataOfFunction = [...line.match(regexp)];
-                    return matchDataOfFunction;
-                }
-            });
-        }
+        var lines = fs.readFileSync(path.torrcPath, 'utf8')
+            .split('\n')
+            .filter(Boolean);
+        lines.forEach(function (line) {
+            if (line.includes(pattern)) { // Exist
+                regexp = /\{(\w+)\}/g;
+                matchDataOfFunction = [...line.match(regexp)];
+                return matchDataOfFunction;
+            }
+        });
     } catch (err) { console.log(err); }
     return matchDataOfFunction;
 }
 
-/*
-    Type:
-        0: Simple add
+function addLineToTorrcFile(ws, newLine, pattern) {
+    try {
+        torrcFileData = fs.readFileSync(path.torrcPath, 'utf8');
+        regex = new RegExp(pattern + '\\s\\{'); // EntryNodes {
+        match = torrcFileData.match(regex);
 
-        1: Add for the following patter
-            setEntryNodes
-            setExitNodes
-            setExcludedNodes
-            setExcludedExitNodes
-
-        2: setGeoIPExcludeUnknown
-*/
-function addLineToTorrcFile(ws, lineToAdd, type, pattern) {
-
-    var fs = require('fs');
-
-    // nothing more than to add
-    if (type == 0) {
-        // console.log(path.torrcPath)
-        fs.appendFile(path.torrcPath, lineToAdd, (err) => {
-            if (err) console.log(err);
-        });
-    } else if (type == 1) {
-        // verify if exist, then get data and merge info
-        // Receive something like this
-        // ExitNodes {ca},{eg} StrictNodes 1
-        // Algorithm:
-        // 1. Find if exist
-        // 2. Get old info
-        // 3. Merge old with new data
-        // 4. Override data
-
-        try {
-            torrcFileData = fs.readFileSync(path.torrcPath, 'utf8');
-            if(pattern == "GeoIPExcludeUnknown"){
-                regex = new RegExp(pattern);
-            } else {
-                regex = new RegExp(pattern + '\\s\\{');
-            }
-            match = torrcFileData.match(regex);
-
-            if (match != null) { // Exist
-                const lineReader = require('read-each-line-sync');
-                lineReader(path.torrcPath, 'utf8', function (line) {
-                    if (line.includes(pattern)) {
-                        var formatted = torrcFileData.replace(line, lineToAdd);
-                        fs.writeFile(path.torrcPath, formatted, 'utf8', function (err) {
-                            if (err) console.log(err);
-                        });
-                    }
-                });
-
-            }
-            else {
-                fs.appendFile(path.torrcPath, lineToAdd, (err) => {
-                    if (err) {
-                        console.log(err);
-                        ws.send("error");
-                        return;
-                    }
-                });
-            }
-        } catch (err) {
-            console.error(err);
-            ws.send("error");
-            return;
+        if (match != null) { // Exist
+            var lines = fs.readFileSync(path.torrcPath, 'utf8')
+                .split('\n')
+                .filter(Boolean);
+            lines.forEach(function (line) {
+                if (line.includes(pattern)) {
+                    var formatted = torrcFileData.replace(line, newLine);
+                    fs.writeFile(path.torrcPath, formatted, 'utf8', function (err) {
+                        if (err) {
+                            ws.send("error");
+                            return;
+                        }
+                    });
+                }
+            });
+        } else {
+            fs.appendFile(path.torrcPath, newLine, (err) => {
+                if (err) {
+                    ws.send("error");
+                    return;
+                }
+            });
         }
+    } catch (err) {
+        ws.send("error");
+        return;
     }
     ws.send("done");
+    return;
 }
 
 /**
  * Torify Function
  */
-
-
 function getAndSendIP(ws, realOrTorified) {
     const { exec } = require("child_process");
     var opsys = process.platform;
@@ -517,8 +302,8 @@ function getAndSendIP(ws, realOrTorified) {
             //     console.log(`stdout: ${stdout}`);
             // });
         } else if (opsys == "win32" || opsys == "win64") {
-            // exec("ls -la", (error, stdout, stderr) => {
-            //     console.log(`stdout: ${stdout}`);
+            // exec("curl ifconfig.me", (error, stdout, stderr) => {
+            //     ws.send(`RealIP$>${stdout}`);
             // });
         } else if (opsys == "linux") {
             exec("curl ifconfig.me 2> /dev/null", (error, stdout, stderr) => {
@@ -558,5 +343,40 @@ function torifyApp(ws, message) {
             ws.send(`TorifiedAPP$>${stdout}`);
         });
     }
+}
 
+function setNodesSettings(ws, message, pattern) {
+    // Split for get data
+    const getNewData = message.split('$>');
+    // Split node by node the user input
+    const nodesDataSplitted = getNewData[1].split(',');
+    newLine = "";
+
+    if (nodesDataSplitted.length != 0) { // No data
+        newLine = "\n" + pattern + " {" + nodesDataSplitted[0] + "}"; // Create initial like: EntryNodes {it} 
+        nodesDataSplitted.forEach(function (value) {
+            if (value != nodesDataSplitted[0]) {
+                newLine += ",{";
+                newLine += value;
+                newLine += "} ";
+            }
+        });
+
+        var oldData = getOldData(pattern)
+        console.log("Debug 4 " + oldData)
+        console.log("Debug 5 " + newLine)
+        if (oldData.length != 0) {
+            newLine += ",";
+            newLine += oldData;
+        }
+        console.log("Debug 6 " + newLine)
+    }
+
+    // StrictNode Setting
+    if (getNewData[2] != undefined) {
+        newLine += " " + getNewData[2]
+    }
+
+    // Update file
+    addLineToTorrcFile(ws, newLine, pattern);
 }
