@@ -10,7 +10,7 @@
     },
     "manifest_version": 2,
     "name": "Tropea",
-    "version": "1.1.5",
+    "version": "1.1.7",
     "description": "Estensione utile a gestire delle funzionalità di TorBrowser",
     "permissions": [
         "*://developer.mozilla.org/*",
