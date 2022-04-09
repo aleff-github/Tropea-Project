@@ -23,7 +23,11 @@ ws.onmessage = function (event) {
     } else if (e.data.includes("TorifiedIP")) {
         updateTorifiedIP(e.data);
     } else if (e.data.includes("TorifiedAPP")) {
-        console.log("[+] " + e.data);
+        alert("If the app allow the torify function it will start soon, else read the FAQ about torify-app.")
+    } else if (e.data.includes("function-not-supported-for-windows")){
+        alert("This functions is not supported fot Windows!")
+    }  else if (e.data.includes("function-not-tested-for-macos")){
+        alert("This functions is not tested fot MacOS, contact us if you want to contribute to the project.")
     } else {
 
         if (!e.data.includes("EntryNodes")) return

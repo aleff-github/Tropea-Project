@@ -1,5 +1,6 @@
 const WebSocket = require("ws");
 var fs = require('fs');
+const { exec } = require("child_process"); // Execute command in shell
 
 var path = {
     torrcPath: "",
@@ -70,9 +71,6 @@ ws.on("connection", ws => {
         console.log("Client has disconected!");
     });
 });
-
-// Execute command in shell
-const { exec } = require("child_process");
 
 /**Set Torrc File Path */
 function setTorrcFilePath(message) {
@@ -204,20 +202,17 @@ function generateAllSettings(ws) {
     resetData();
     data.TorBrowserPath = path.torPath;
     try {
-        const lineReader = require('read-each-line-sync');
-        lineReader(path.torrcPath, 'utf8', function (line) {
-            //console.log("[.]" + line)
+        var lines = fs.readFileSync(path.torrcPath, 'utf8')
+            .split('\n')
+            .filter(Boolean);
+        lines.forEach(function (line) {
             if (line.startsWith(PATTERN.EntryNodes)) {
-                //console.log("[@]" + line)
                 data.EntryNodes = line;
             } else if (line.startsWith(PATTERN.ExitNodes)) {
-                // console.log("[*]" + line)
                 data.ExitNodes = line;
             } else if (line.startsWith(PATTERN.ExcludeNodes)) {
-                //  console.log("[+]" + line)
                 data.ExcludeNodes = line;
             } else if (line.startsWith(PATTERN.ExcludeExitNodes)) {
-                // console.log("[-]" + line)
                 data.ExcludeExitNodes = line;
             } else if (line.startsWith(PATTERN.GeoIPExcludeUnknown)) {
                 data.GeoIPExcludeUnknown = line;
@@ -294,17 +289,14 @@ function addLineToTorrcFile(ws, newLine, pattern) {
  * Torify Function
  */
 function getAndSendIP(ws, realOrTorified) {
-    const { exec } = require("child_process");
     var opsys = process.platform;
     if (realOrTorified) {
         if (opsys == "darwin") {
-            // exec("ls -la", (error, stdout, stderr) => {
-            //     console.log(`stdout: ${stdout}`);
-            // });
+            ws.send("function-not-tested-for-macos");
         } else if (opsys == "win32" || opsys == "win64") {
-            // exec("curl ifconfig.me", (error, stdout, stderr) => {
-            //     ws.send(`RealIP$>${stdout}`);
-            // });
+            exec("curl ifconfig.me", (error, stdout, stderr) => {
+                ws.send(`RealIP$>${stdout}`);
+            });
         } else if (opsys == "linux") {
             exec("curl ifconfig.me 2> /dev/null", (error, stdout, stderr) => {
                 ws.send(`RealIP$>${stdout}`);
@@ -312,13 +304,9 @@ function getAndSendIP(ws, realOrTorified) {
         }
     } else {
         if (opsys == "darwin") {
-            // exec("ls -la", (error, stdout, stderr) => {
-            //     console.log(`stdout: ${stdout}`);
-            // });
-        } else if (opsys == "win32" || opsys == "win64") {
-            // exec("ls -la", (error, stdout, stderr) => {
-            //     console.log(`stdout: ${stdout}`);
-            // });
+            ws.send("function-not-tested-for-macos");
+        } else if (opsys == "win32" || opsys == "win64") { 
+            ws.send("function-not-supported-for-windows");
         } else if (opsys == "linux") {
             exec("torify curl ifconfig.me 2> /dev/null", (error, stdout, stderr) => {
                 ws.send(`TorifiedIP$>${stdout}`);
@@ -333,14 +321,12 @@ function torifyApp(ws, message) {
     const { exec } = require("child_process");
     var opsys = process.platform;
     if (opsys == "darwin") {
-        // exec("ls -la", (error, stdout, stderr) => {
-        //     console.log(`stdout: ${stdout}`);
-        // });
+        ws.send("function-not-tested-for-macos");
     } else if (opsys == "win32" || opsys == "win64") {
-        ws.send("TorifiedAPP$>Windows");
+        ws.send("function-not-supported-for-windows");
     } else if (opsys == "linux") {
         exec("torify " + path + " 2> /dev/null", (error, stdout, stderr) => {
-            ws.send(`TorifiedAPP$>${stdout}`);
+            ws.send("TorifiedAPP");
         });
     }
 }
