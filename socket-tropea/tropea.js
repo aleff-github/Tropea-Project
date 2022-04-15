@@ -130,8 +130,10 @@ function removeElementFromTropeaAdvanced(ws, message) {
         pattern = tmp[0];
         toBeRemoved = tmp[1];
 
-        const lineReader = require('read-each-line-sync');
-        lineReader(path.torrcPath, 'utf8', function (line) {
+        var lines = fs.readFileSync(path.torrcPath, 'utf8')
+            .split('\n')
+            .filter(Boolean);
+        lines.forEach(function (line) {
             if (line.includes(pattern)) {
 
                 toBeRemovedRegex = toBeRemoved.replace("}", "\\}")
@@ -140,8 +142,8 @@ function removeElementFromTropeaAdvanced(ws, message) {
                 conditionOne = new RegExp(toBeRemovedRegex + ',');
                 conditionTwo = new RegExp(',' + toBeRemovedRegex);
 
-                /**
-                 * Le possibili condizioni sono molteplici:
+                
+                 /* Le possibili condizioni sono molteplici:
                  * 
                  * 1. EntryNodes {aa},{bb} StrictNodes 1
                  *      Se si vuole eliminare {aa} dobbiamo assicurarci di eliminare
@@ -151,7 +153,7 @@ function removeElementFromTropeaAdvanced(ws, message) {
                  *      Se si vuole eliminare {bb} dobbiamo assicurarci di eliminare
                  *      anche la virgola per evitare questa situazione
                  *      EntryNodes {aa}, StrictNodes 1
-                 */
+                 **/
 
                 var lineToChange = "";
 
@@ -174,6 +176,52 @@ function removeElementFromTropeaAdvanced(ws, message) {
                 });
             }
         });
+        
+        /** DEPRECATED
+         * const lineReader = require('read-each-line-sync');
+        lineReader(path.torrcPath, 'utf8', function (line) {
+            if (line.includes(pattern)) {
+
+                toBeRemovedRegex = toBeRemoved.replace("}", "\\}")
+
+                torrcFileData = fs.readFileSync(path.torrcPath, 'utf8');
+                conditionOne = new RegExp(toBeRemovedRegex + ',');
+                conditionTwo = new RegExp(',' + toBeRemovedRegex);
+
+                
+                 * Le possibili condizioni sono molteplici:
+                 * 
+                 * 1. EntryNodes {aa},{bb} StrictNodes 1
+                 *      Se si vuole eliminare {aa} dobbiamo assicurarci di eliminare
+                 *      anche la virgola per evitare questa situazione 
+                 *      EntryNodes ,{bb} StrictNodes 1
+                 * 2. EntryNodes {aa},{bb} StrictNodes 1
+                 *      Se si vuole eliminare {bb} dobbiamo assicurarci di eliminare
+                 *      anche la virgola per evitare questa situazione
+                 *      EntryNodes {aa}, StrictNodes 1
+                 *
+
+                var lineToChange = "";
+
+                if (line.match(conditionOne)) {
+                    lineToChange = line.replace(toBeRemoved + ",", '');
+                    formatted = torrcFileData.replace(line, lineToChange);
+                } else if (line.match(conditionTwo)) {
+                    lineToChange = line.replace("," + toBeRemoved, '');
+                    formatted = torrcFileData.replace(line, lineToChange);
+                }
+
+                var formatted = torrcFileData.replace(line, lineToChange);
+                fs.writeFile(path.torrcPath, formatted, 'utf8', function (err) {
+                    if (err) {
+                        console.log(err);
+                        ws.send("error");
+                    } else {
+                        ws.send("done");
+                    }
+                });
+            }
+        });*/
     } else if (pattern.includes("StrictNodes")) {
         tmp = pattern.split("_", 2);
         pattern = tmp[0];
@@ -349,13 +397,10 @@ function setNodesSettings(ws, message, pattern) {
         });
 
         var oldData = getOldData(pattern)
-        console.log("Debug 4 " + oldData)
-        console.log("Debug 5 " + newLine)
         if (oldData.length != 0) {
             newLine += ",";
             newLine += oldData;
         }
-        console.log("Debug 6 " + newLine)
     }
 
     // StrictNode Setting
