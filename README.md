@@ -52,7 +52,7 @@ Tropea-Project extension work in local from the extension command whit node.js a
 # Advanced Tropea
 |Function|Status|
 |--|--|
-|TorifyApp|It depends on the application launched, [Working Application]()|
+|TorifyApp|*underdevelopment*|
 |Remove EntryNodes|Work|
 |Remove ExitNodes|Work|
 |Remove ExcludeNodes|Work|
@@ -65,7 +65,6 @@ Tropea-Project extension work in local from the extension command whit node.js a
 |\[Add\]ExitNodes|it,de,...|
 |\[Add\]ExcludeNodes|it,de,...|
 |\[Add\]ExcludeExitNodes|it,de,...|
-|Torify App|\<application\>|
 
 # FAQs
 
