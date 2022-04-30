@@ -37,7 +37,7 @@ Tropea-Project is an open-source project undertaken by a university student for 
 |[Windows Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases/download/tropea-1.1.7/windows-local-script.exe)|[Checked ✅](https://www.virustotal.com/gui/url/3847d463460766aa781f9324dee9527b6579d590ff29a3df7da3ec201d030c63)|
 
 # How it works?
-Tropea-Project extension work in local from the extension command whit node.js and javascript that get the input from the extension and edit torrc file in the TorBrowser folder as the user want, so as the input sent.
+Tropea-Project extension work in local from the extension command with node.js and javascript that get the input from the extension and edit torrc file in the TorBrowser folder as the user want, so as the input sent.
 
 # Extension Panel
 |Function|Status|
@@ -79,7 +79,7 @@ Tropea-Project extension work in local from the extension command whit node.js a
 Tropea-Project's priority is to have anyone modify the tunneling of the tor network, so it was decided to create an interface already known as that of six websites. Fortunately, however, we cannot modify your files simply from an extension, which is why it is necessary to start node.js from your computer to perform all the requests made by the user through the extension.
 
 ## How can i be sure that a country works on Tor Network?
-<strong><u> <a href="https://metrics.torproject.org/rs.html#search/country:it">Whit this website</a> </u></strong> you can find all what you need. It is a TorProject service that you can use freely and for free to find Tor Relay for every country. If you don't know what is a Country ID you can use Google or <a href="https://laendercode.net/en/">this website</a>
+<strong><u> <a href="https://metrics.torproject.org/rs.html#search/country:it">With this website</a> </u></strong> you can find all what you need. It is a TorProject service that you can use freely and for free to find Tor Relay for every country. If you don't know what is a Country ID you can use Google or <a href="https://laendercode.net/en/">this website</a>
 
 ## Tropea-Project is secure?
 <strong><u>It depends on you</u></strong> Tropea-Project does not interact in any way with your connection, nor does it take any data relating to your device or browser, all the changes you actually make, so it is up to you to be careful to follow the correct syntax but, where you are wrong, simply you would not be able to navigate and in that case it would be enough for you to reset everything using the Reset button and start over.
