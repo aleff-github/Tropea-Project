@@ -1,4 +1,4 @@
-[![Tropea-Project](https://github.com/NoNameoN-A/Tropea-Project/blob/main/[Repo\ Documents]\ images/tropea-project.svg)](https://addons.mozilla.org/it/firefox/addon/tropea-project/)
+[![Tropea-Project](https://github.com/NoNameoN-A/Tropea-Project/blob/main/[Repo%20Documents]%20images/tropea-project.svg)](https://addons.mozilla.org/it/firefox/addon/tropea-project/)
 
 # Tropea-Project [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FNoNameoN-A%2FTropea-Project&count_bg=%239E264C&title_bg=%239E264C&icon=tor.svg&icon_color=%231C1C1C&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 Tropea-Project is an open-source project undertaken by a university student for a thesis work at the University of Calabria UNICAL and the only goal is to give everyone (even less experienced average users) the opportunity to modify at their own I plan the tunneling phase of the tor connection in a clear and simple way as you want.
@@ -28,13 +28,6 @@ Tropea-Project is an open-source project undertaken by a university student for 
 |Windows Tutorial|Video: https://peertube.uno/w/1Jwr4jjaPAcNmGLubLHwZV|
 |Linux Tutorial|Video: https://peertube.uno/w/mLV1WE8cg7vFEcATnBf1oJ|
 |MacOS Tutorial Video|Not aviable yet <- Untested|
-
-# Scripts & Virus-Total Check
-|File|Virus Total Check|
-|--|--|
-|[Linux Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases/download/tropea-1.1.7/linux-local-script)|[Checked ✅](https://www.virustotal.com/gui/url/a3ac84a8fff0399bfde4541dd4984e232cd6672be50e19942ba2a17fc16eab3f)|
-|[MacOS Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases/download/tropea-1.1.7/macos-local-script)|[Checked ✅](https://www.virustotal.com/gui/url/3847d463460766aa781f9324dee9527b6579d590ff29a3df7da3ec201d030c63)|
-|[Windows Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases/download/tropea-1.1.7/windows-local-script.exe)|[Checked ✅](https://www.virustotal.com/gui/url/3847d463460766aa781f9324dee9527b6579d590ff29a3df7da3ec201d030c63)|
 
 # How it works?
 Tropea-Project extension work in local from the extension command whit node.js and javascript that get the input from the extension and edit torrc file in the TorBrowser folder as the user want, so as the input sent.
