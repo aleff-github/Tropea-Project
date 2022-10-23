@@ -66,44 +66,6 @@ Tropea-Project extension work in local from the extension command whit node.js a
 |\[Add\]ExcludeNodes|it,de,...|
 |\[Add\]ExcludeExitNodes|it,de,...|
 
-# Security check
-
-### Tor file path 
-- **Regex** used: *^[\/:a-zA-Z0-9$>]{1,150}$*
-- Example:
-- - **Windows** user: C://users/aleff/Document/tor
-- - **Linux** user: /home/aleff/Documents/tor
-- - **MacOS** user: *untested*
-
-### GeoIPExcludeUnknown
-- **Regex** used: *^setGeoIPExcludeUnknown\$>[a-z0-1]{0,4}$*
-- Example:
-- - setGeoIPExcludeUnknown$>auto
-- - setGeoIPExcludeUnknown$>0
-- - setGeoIPExcludeUnknown$>1
-
-### SetFunctions
-- **Regex** used: *^[a-zA-Z,]{1,20}\$>[a-zA-Z,]{1,20}\$*>*[a-zA-Z]{0,11}\s*1*$*
-- Example:
-- - setEntryNodes$>ca,eg,it,ru$>StrictNodes 1
-- - setEntryNodes$>ca,ru
-- - setEntryNodes$>ef$>StrictNodes 1
-- - setExitNodes$>ef$>StrictNodes 1
-- - setExcludedNodes$>ef
-- - setExcludedExitNodes$>er
-
-### RemoveSettedFunctions
-- **Regex** used: *^remove\$>[a-zA-Z]{1,16}_\{*[a-zA-Z]*\}*\s*1*$*
-- Example:
-- - remove$>EntryNodes_{ca}
-- - remove$>EntryNodes_StrictNodes 1
-- - remove$>ExitNodes_{ds} 
-- - remove$>ExitNodes_StrictNodes 1
-- - remove$>ExcludeNodes_{we}
-- - remove$>ExcludeExitNodes_{as}
-
-
-
 # FAQs
 
 ## Torify function works in every OS?
@@ -125,4 +87,3 @@ Tropea-Project's priority is to have anyone modify the tunneling of the tor netw
  ## How can i install Tor on my computer?
 <strong><u> <a href="https://tb-manual.torproject.org/installation/">Follow this guide</a></u>.</strong> Is really simple and you can do it in every OS(Windows, MacOS or Linux).
  
-
