@@ -148,10 +148,9 @@ function changeGeoSettings() {
     selection = document.querySelector('input[name="geoIPExcludeUnknownOptions"]:checked').value;
     message = "setGeoIPExcludeUnknown$>" + selection;
 
-    const SEC_GEO_IP_REGEX_YES_NOT = /^setGeoIPExcludeUnknown\$>[0-1]{1}$/g;
-    const SEC_GEO_IP_REGEX_AUTO = /^setGeoIPExcludeUnknown\$>auto$/g;
+    const SEC_GEO_IP_REGEX = /^setGeoIPExcludeUnknown\$>[a-z0-1]{0,4}$/g;
     
-    if(message.match(SEC_GEO_IP_REGEX_YES_NOT) != null || message.match(SEC_GEO_IP_REGEX_AUTO) != null){
+    if(message.match(SEC_GEO_IP_REGEX) != null){
         ws.send(message);
     } else {
         console.log(message.match(SEC_GEO_IP_REGEX_YES_NOT))
