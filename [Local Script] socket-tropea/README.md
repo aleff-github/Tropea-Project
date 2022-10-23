@@ -12,7 +12,7 @@
 ## Set Functions
 
 **Regex**:
-- ^[a-zA-Z,]{1,20}\$>[a-zA-Z,]{1,20}\$*>*[a-zA-Z]{0,11}\s*1*$
+- ```^[a-zA-Z,]{1,20}\$>[a-zA-Z,]{1,20}\$*>*[a-zA-Z]{0,11}\s*1*$```
 
 **Example**:
 - setEntryNodes$>ca,eg,it,ru$>StrictNodes 1
@@ -25,7 +25,7 @@
 ## Remove Function 
 
 **Regex**:
-- ^remove\$>[a-zA-Z]{1,16}_\{*[a-zA-Z]*\}*\s*1*$
+- ``` ^remove\$>[a-zA-Z]{1,16}_\{*[a-zA-Z]*\}*\s*1*$```
 
 **Example**:
 - remove$>EntryNodes_{ca}
@@ -38,7 +38,7 @@
 ## Geo Functions
 
 **Regex**:
-- ^setGeoIPExcludeUnknown\$>[a-z0-1]{0,4}$
+- ``` ^setGeoIPExcludeUnknown\$>[a-z0-1]{0,4}$```
 
 **Example**:
 - GeoIPExcludeUnknown 1
