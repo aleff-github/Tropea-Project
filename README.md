@@ -32,9 +32,9 @@ Tropea-Project is an open-source project undertaken by a university student for 
 # Scripts & Virus-Total Check
 |File|Virus Total Check|
 |--|--|
-|[Linux Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases/download/tropea-1.1.7/linux-local-script)|[Checked ✅](https://www.virustotal.com/gui/url/a3ac84a8fff0399bfde4541dd4984e232cd6672be50e19942ba2a17fc16eab3f)|
-|[MacOS Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases/download/tropea-1.1.7/macos-local-script)|[Checked ✅](https://www.virustotal.com/gui/url/3847d463460766aa781f9324dee9527b6579d590ff29a3df7da3ec201d030c63)|
-|[Windows Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases/download/tropea-1.1.7/windows-local-script.exe)|[Checked ✅](https://www.virustotal.com/gui/url/3847d463460766aa781f9324dee9527b6579d590ff29a3df7da3ec201d030c63)|
+|[Linux Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases)|[Checked ✅](https://www.virustotal.com/gui/file/a1c025a9a0d4404edd26d2e037786a0ffff3e4a6d3327a5b7e97b92b9618b519)|
+|[MacOS Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases)|[Checked ✅](https://www.virustotal.com/gui/file/337d2e5c6ce0ef09b0cbd7574882470bf7c8bf82cf3e0fa08a56a9ba5271f739)|
+|[Windows Local Script](https://github.com/NoNameoN-A/Tropea-Project/releases)|[1 Vulnerability ❌](https://www.virustotal.com/gui/file/6592bb329a9b18984075d7910b59227e0a2bcb6e6740d046c49e170f25ce4fe1)|
 
 # How it works?
 Tropea-Project extension work in local from the extension command whit node.js and javascript that get the input from the extension and edit torrc file in the TorBrowser folder as the user want, so as the input sent.
