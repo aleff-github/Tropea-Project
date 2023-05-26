@@ -8,8 +8,6 @@ Tropea-Project is an open-source project undertaken by a university student for 
 
 *Tropea Color: #9e264c*
 
-![](https://img.shields.io/badge/unsupported-!-3C3C3C)
-
 ## Licence
 ![Licence](https://img.shields.io/badge/Licence-GNU3-%239e264c?style=for-the-badge) 
 
