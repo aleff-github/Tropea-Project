@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Tropea-Project</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="Tropea/assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="Tropea/css/styles.css" rel="stylesheet" />
+    <link href="Tropea/css/tropea-style.css" rel="stylesheet" />
+    <link href="Tropea/css/table-style1.css" rel="stylesheet" />
+    <link href="Tropea/css/table-style2.css" rel="stylesheet" />
+    <link href="Tropea/css/footer.css" rel="stylesheet" />
+    <link href="Tropea/css/faqs.css" rel="stylesheet" />
+
+    <script defer src="render.js"></script>
+
+</head>
+
+<body class="bg-grad">
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sticky" id="navbar">
+            <a href="index.html"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <img src="icons/tropea.svg" width="40" height="40" class="d-inline-block align-top" alt="">
+                <span class="fs-4" style="padding-left: 10px;">Tropea-Project</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#tropea" class="nav-link active nav-tropea" aria-current="page">Tropea</a>
+                </li>
+                <li class="nav-item"><a href="Tropea/settings.html" class="nav-link nav-tropea">Settings</a></li>
+                <li class="nav-item"><a href="Tropea/torify.html" class="nav-link nav-tropea">Torify</a></li>
+                <li class="nav-item"><a href="https://github.com/aleff-github/Tropea-Project/wiki"
+                        class="nav-link nav-tropea">Wiki</a></li>
+                <li class="nav-item"><a href="#FAQs" class="nav-link nav-tropea">FAQs</a></li>
+            </ul>
+        </header>
+    </div>
+    <!-- Page content-->
+    <section id="tropea">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="row flex-xl-nowrap order-last">
+                    <div class="container pt-5">
+                        <div class="row">
+                            <div class="col-12 content-center pt-5">
+                                <div class="row">
+                                    <h1 class="display-2 text-center">Browse Privately</h1>
+                                </div>
+                                <div class="row">
+                                    <h1 class="display-2 text-center">Edit Settings As You Want</h1>
+                                </div>
+                                <div class="row">
+                                    <h4 class="p-3 text-center">Use the TropeaProject extension to
+                                        simply navigate through all TorBrowser settings</h4>
+                                </div>
+                                <div class="row col-12 p-5 mx-auto justify-content-center">
+
+                                    <button class="btn btn-lg btn-tropea" id="download-tropea-project">
+                                        Download Tropea Project<i class="ml-2 pt-1 fas fa-arrow-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container bg-white" style="text-align: center;">
+            <h2 class="text-center mb-4 pb-2 fw-bold faqs-title">Fast Options</h2>
+            <h4 class="text-center mb-5">
+                Edit your Tor Browser settings, is really more simple :)
+            </h4>
+                <div class="list-group">
+                    <!-- TorBrowserPath-->
+                    <div class="tropea-function aligned macro-title" id="changeTorBroswerFormGroup">
+                        <h3 for="input-group-2" class="title">Tor Browser Directory Path</h3>
+                        <p>You must indicate the installation location of Tor Browser or Tor that you wish to use.</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="newTorBrowserPath" name="input-group-2"
+                                placeholder="C:\Users\Aleff\Desktop\Tor Browser">
+                            <div class="input-group-append">
+                                <button class="btn btn-lg btn-tropea" type="button"
+                                    id="changeTorBrowserPathButtonSave">Save</button>
+                                <button class="btn btn-lg btn-tropea" type="button"
+                                id="changeTorBrowserPathButtonAuto">Auto</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TorBrowserPath-->
+
+                    <!-- Input Bar - Change EntryNode -->
+                    <div class="tropea-function aligned space" id="changeTorEntryNodeFormGroup">
+                        <h3 for="input-group-2" class="title macro-title">Entry Nodes</h3>
+                        <p>Set the origin you prefer for incoming nodes to mandatory or preferred. If you write it while keeping "Strict Nodes" checked then only Italian nodes will be selected, if you write it without keeping "Strict Nodes" you express a preference.</p>
+                        <div class="form-check form-switch">
+                            <label class="form-check-label title" for="flexSwitchCheckChecked"
+                                id="flexSwitchCheckChecked">
+                                Strict Nodes
+                                <input class="form-check-input" type="checkbox" id="strictNodeEntryNode" checked>
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="entryNodeTor" name="input-group-2"
+                                placeholder="ca,eg,it,...">
+                            <div class="input-group-append">
+                                <button class="btn btn-lg btn-tropea" type="button"
+                                    id="changeTorEntryNodeButton">Add!</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Bar End - Change EntryNode -->
+
+                    <!-- Change ExitNode -->
+                    <div class="tropea-function aligned space" id="changeTorExitNodeFormGroup">
+                        <h3 for="input-group-2" class="title macro-title">Exit Nodes</h3>
+                        <p>Set the origin you prefer for the outgoing nodes as mandatory or preferred. If you write it while keeping "Strict Nodes" checked then only Italian nodes will be selected, if you write it without keeping "Strict Nodes" you express a preference.</p>
+                        <div class="form-check form-switch">
+                            <label class="form-check-label title" for="flexSwitchCheckChecked">Strict Nodes
+                                <input class="form-check-input" type="checkbox" id="strictNodeExitNode" checked>
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="exitNodeTor" name="input-group-2"
+                                placeholder="ca,eg,it,...">
+                            <div class="input-group-append">
+                                <button class="btn btn-lg btn-tropea" type="button"
+                                    id="changeTorExitNodeButton">Add!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Change ExitNode -->
+
+                    <!-- Exclude Nodes -->
+                    <div class="tropea-function aligned space" id="changeTorExcludedNodesFormGroup">
+                        <h3 for="input-group-2" class="title macro-title">Exclude Nodes</h3>
+                        <p>Set the origin you want to exclude within the entire circuit. If you write it then within the whole circuit all Italian nodes will always be excluded.</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="excludeTorNodes" name="input-group-2"
+                                placeholder="ca,eg,it,...">
+                            <div class="input-group-append">
+                                <button class="btn btn-lg btn-tropea" type="button"
+                                    id="changeTorExcludedNodesButton">Add!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Exclude Nodes -->
+
+                    <!--  ExcludeExitNodes Nodes -->
+                    <div class="tropea-function aligned space" id="changeTorExcludedExitNodesFormGroup">
+                        <div class="aligned">
+                            <h3 for="input-group-2" class="title macro-title">Exclude Exit Nodes</h3>
+                            <p>Set the origin you want to exclude for the Exit Node. If you write it then you will never have Italian outgoing nodes.</p>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="excludeExitTorNodes" name="input-group-2"
+                                placeholder="ca,eg,it,...">
+                            <div class="input-group-append">
+                                <button class="btn btn-lg btn-tropea" type="button"
+                                    id="changeTorExcludedExitNodesButton">Add!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  ExcludeExitNodes Nodes -->
+
+                    <!-- Geo-->
+                    <div class="tropea-function aligned space">
+                        <h3 for="input-group-2" class="title macro-title"> GeoIPExcludeUnknown</h3>
+                        <p>If this option is set to auto, then whenever any country code is set in ExcludeNodes or ExcludeExitNodes, all nodes with unknown country ({??} and possibly {A1}) are treated as excluded as well. If this option is set to 1, then all unknown countries are treated as excluded in ExcludeNodes and ExcludeExitNodes. (Default: auto)</p>
+                        <div class="input-group-checkbox">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="geoIPExcludeUnknownOptions"
+                                    id="inlineRadio1" value="0">
+                                <label class="form-check-label" for="inlineRadio1">No</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="geoIPExcludeUnknownOptions"
+                                    id="inlineRadio2" value="1">
+                                <label class="form-check-label" for="inlineRadio2">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="geoIPExcludeUnknownOptions"
+                                    id="inlineRadio3" value="auto">
+                                <label class="form-check-label" for="inlineRadio3">Auto</label>
+                            </div>
+                            <div class="form-check form-check-inline input-group-append" style="padding-left: 0px;">
+                                <button class="btn btn-lg btn-tropea" type="button" id="changeGeoIPExcludeUnknownButton">Edit!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Geo -->
+
+                    <div class="dropdown-divider space"></div>
+
+                    <!-- Input Bar - Relay Check -->
+                    <div class="outer space">
+                        <div class="list-group macro-title">
+                            <div class="form-group aligned" id="relayCheck">
+                                <h2 class="text-center mb-4 pb-2 fw-bold faqs-title">Just A Click Options</h2>
+                                <h4 class="text-center mb-5">One-Click option or util links</h4>
+
+                                <button class="btn btn-tropea btn-ExternalLink " type="button"
+                                    id="advancedTropea">Advanced
+                                    Tropea
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                        <path fill-rule="evenodd"
+                                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                    </svg></button>
+
+                                <button class="btn btn-tropea btn-ExternalLink " type="button"
+                                    id="checkTorRelay">Check
+                                    TorRelay
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                        <path fill-rule="evenodd"
+                                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                    </svg></button>
+
+                                <button class="btn btn-tropea" type="button" id="reset">Restore Original
+                                    Options</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Input Bar End - Change ExitNode -->
+                <div id="outer">
+                </div>
+
+    </section>
+
+    <!--Section: FAQ-->
+    <section id="FAQs">
+        <div class="container bg-white" style="text-align: center;">
+            <h3 class="text-center mb-4 pb-2 fw-bold faqs-title">FAQs</h3>
+            <p class="text-center mb-5">
+                Find the answers for the most frequently asked questions below
+            </p>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h6 class="mb-3 faq-title"><i class="far fa-paper-plane pe-2"></i> Torify function works in every
+                        OS?</h6>
+                    <p>
+                        <strong><u>No Unfortunately!</u></strong> No options for Windows, sadly. They haven’t found a
+                        good
+                        way to do network isolation there. On macOS, you should be able to “just” use torify but
+                        you must copy the binaries over to /tmp for example to torify them. <a
+                            href="https://forum.torproject.net/t/how-can-i-use-torify-command-on-else-operating-system/2207">-
+                            learn more... -</a>
+                    </p>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h6 class="mb-3 faq-title"><i class="fas fa-pen-alt pe-2"></i> Torify function works with every
+                        Application?</h6>
+                    <p>
+                        <strong><u>Not for all!</u></strong> Unfortunately establishing a 100% secure Tor connection is
+                        not
+                        easy and therefore development in general is very slow to favor a secure system. There is a list
+                        of
+                        applications where it has been tested and you can find it by <a
+                            href="https://gitlab.torproject.org/legacy/trac/-/wikis/doc/torsocks#security">clicking
+                            here!</a>
+                        Else if you want to see the official response on TorProject Forum <a
+                            href="https://forum.torproject.net/t/torify-problem-in-applications-launch/2220/3">click
+                            here</a>.
+                    </p>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h6 class="mb-3 faq-title"><i class="fas fa-user pe-2"></i> Why i must run tropea.js on my computer
+                        before use tropea extension?
+                    </h6>
+                    <p>
+                        Tropea-Project's priority is to have anyone modify the tunneling of the tor network, so it was
+                        decided to create an interface already known as that of six websites. Fortunately, however, we
+                        cannot modify your files simply from an extension, which is why it is necessary to start node.js
+                        from your computer to perform all the requests made by the user through the extension.
+                    </p>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h6 class="mb-3 faq-title"><i class="fas fa-rocket pe-2"></i> How can i be sure
+                        that a country works on Tor Network?
+                    </h6>
+                    <p>
+                        <strong><u> <a href="https://metrics.torproject.org/rs.html#search/country:it">Whit this
+                                    website</a> </u></strong>
+                        you can find all what you need. It is a TorProject service that you can use freely and for free
+                        to find Tor Relay for every country. If you don't know what is a Country ID you can use Google
+                        or <a href="https://laendercode.net/en/">this website</a>
+                    </p>
+                </div>
+
+
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h6 class="mb-3 faq-title"><i class="fas fa-book-open pe-2"></i>Tropea-Project is secure?</h6>
+                    <p> <strong><u>It depends on you</u></strong>
+                        Tropea-Project does not interact in any way with your connection, nor does it take any
+                        data relating to your device or browser, all the changes you actually make, so it is
+                        up to you to be careful to follow the correct syntax but, where you are wrong, simply
+                        you would not be able to navigate and in that case it would be enough for you to reset
+                        everything using the Reset button and start over.
+                    </p>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h6 class="mb-3 faq-title"><i class="fas fa-home pe-2"></i> How can i install Tor on my computer?
+                    </h6>
+                    <p><strong><u> <a href="https://tb-manual.torproject.org/installation/">Follow this
+                                    guide</a></u>.</strong> Is really simple and you can do it in every OS(Windows,
+                        MacOS or Linux).</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--Section: FAQ-->
+
+    <footer class="w-100 py-4 flex-shrink-0" id="about">
+        <div class="container py-4">
+            <div class="row gy-4 gx-5">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="h1 footer-title">Tropea-Project. <img src="icons/tropea.svg" width="40" height="40"
+                            class="d-inline-block align-top" alt=""> </h5>
+                    <p class="small text-muted">Tropea-Project is an open-source project undertaken by a university
+                        student for a thesis work at the University of Calabria UNICAL and the only goal is to give
+                        everyone (even less experienced average users) the opportunity to modify at their own I plan the
+                        tunneling phase of the tor connection in a clear and simple way as you want.</p>
+                    <p class="small text-muted mb-0"><a class=""
+                            href="https://github.com/aleff-github/Tropea-Project">Open-Source Project</a>
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-3 footer-title">Quick links</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a class="footer-link" href="#top">Home</a></li>
+                        <li><a class="footer-link" href="https://github.com/aleff-github/Tropea-Project/wiki">Wiki</a>
+                        </li>
+                        <li><a class="footer-link" href="Tropea/torify.html">Torify</a></li>
+                        <li><a class="footer-link" href="Tropea/settings.html">Settings</a></li>
+                        <li><a class="footer-link" href="#FAQs">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-3 footer-title">External links</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a class="footer-link"
+                                href="https://addons.mozilla.org/it/firefox/addon/tropea-project/">Tropea-Project</a>
+                        </li>
+                        <li><a class="footer-link"
+                                href="https://github.com/NoNameoN-A/Tropea-Project">Source-Project</a></li>
+                        <li><a class="footer-link" href="https://peertube.uno/c/tropea_project/videos">PeerTube Page</a>
+                        </li>
+                        <li><a class="footer-link" href="https://www.torproject.org/">Tor-Project</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-3 footer-title">Newsletter</h5>
+                    <p class="small text-muted">If you want to follow the Tropea-Project or if you want to contribute in
+                        some made, follow the Project Repository clicking Whatch on the top-right of the <a class=""
+                            href="https://github.com/aleff-github/Tropea-Project">GitHub Page</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="Tropea/js/scripts.js"></script>
+
+</body>
+
+</html>

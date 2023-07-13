@@ -1,0 +1,29 @@
+{
+    "browser_action": {
+        "browser_style": true,
+        "default_title": "Tropea-Project",
+        "default_popup": "tropea.html",
+        "default_icon": {
+            "19": "icons/logo.png",
+            "38": "icons/logo.png"
+        }
+    },
+    "manifest_version": 2,
+    "name": "Tropea",
+    "version": "1.1.10",
+    "description": "Estensione utile a gestire delle funzionalità di TorBrowser",
+    "permissions": [
+        "*://developer.mozilla.org/*",
+        "notifications",
+        "activeTab",
+        "storage"
+    ],
+    "background": {
+        "scripts": [
+            "script/tropea.js"
+        ]
+    },
+    "icons": {
+        "48": "icons/logo.png"
+    }
+}
